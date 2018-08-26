@@ -1,0 +1,102 @@
+@model Assignment1.Models.Product
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<form asp-action="Edit"enctype="multipart/form-data">
+    <div class="form-horizontal">
+        <h4>Product</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="ProductID" />
+        <div class="form-group">
+            <label asp-for="BrandID" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <select asp-for="BrandID" class="form-control" asp-items="ViewBag.BrandID"></select>
+                <span asp-validation-for="BrandID" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="CategoryID" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <select asp-for="CategoryID" class="form-control" asp-items="ViewBag.CategoryID"></select>
+                <span asp-validation-for="CategoryID" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="LargeImage" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="LargeImage" class="form-control" />
+                <span asp-validation-for="LargeImage" class="text-danger" />
+                <input type="file" name="_files" id="_files" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="MaterialID" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <select asp-for="MaterialID" class="form-control" asp-items="ViewBag.MaterialID"></select>
+                <span asp-validation-for="MaterialID" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="MediumImage" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="MediumImage" class="form-control" />
+                <span asp-validation-for="MediumImage" class="text-danger" />
+                <input type="file" name="_files" id="_files" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Price" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ProductDescription" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ProductDescription" class="form-control" />
+                <span asp-validation-for="ProductDescription" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="SizeID" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <select asp-for="SizeID" class="form-control" asp-items="ViewBag.SizeID"></select>
+                <span asp-validation-for="SizeID" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="SmallImage" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="SmallImage" class="form-control" />
+                <span asp-validation-for="SmallImage" class="text-danger" />
+                <input type="file" name="_files" id="_files" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="TotalValue" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="TotalValue" class="form-control" />
+                <span asp-validation-for="TotalValue" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,100 @@
+@model Assignment1.Models.Product
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<form asp-action="Create"enctype="multipart/form-data">  
+    <div class="form-horizontal">
+        <h4>Product</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="BrandID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="BrandID" class ="form-control" asp-items="ViewBag.BrandID"></select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="CategoryID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="CategoryID" class ="form-control" asp-items="ViewBag.CategoryID"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="LargeImage" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="LargeImage" class="form-control" />
+                <span asp-validation-for="LargeImage" class="text-danger" />
+                <input type="file" name="_files" id="_files" />
+            </div>
+           
+        </div>
+       
+        <div class="form-group">
+            <label asp-for="MaterialID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="MaterialID" class ="form-control" asp-items="ViewBag.MaterialID"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="MediumImage" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="MediumImage" class="form-control" />
+                <span asp-validation-for="MediumImage" class="text-danger" />
+                <input type="file" name="_files" id="_files" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Price" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ProductDescription" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ProductDescription" class="form-control" />
+                <span asp-validation-for="ProductDescription" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="SizeID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="SizeID" class ="form-control" asp-items="ViewBag.SizeID"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="SmallImage" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="SmallImage" class="form-control" />
+                <span asp-validation-for="SmallImage" class="text-danger" />
+                <input type="file" name="_files" id="_files" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="TotalValue" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="TotalValue" class="form-control" />
+                <span asp-validation-for="TotalValue" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

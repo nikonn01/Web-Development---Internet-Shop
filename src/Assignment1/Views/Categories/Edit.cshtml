@@ -1,0 +1,44 @@
+@model Assignment1.Models.Category
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<form asp-action="Edit" enctype="multipart/form-data">
+    <div class="form-horizontal">
+        <h4>Category</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="CategoryID" />
+        <div class="form-group">
+            <label asp-for="CategoryDescription" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="CategoryDescription" class="form-control" />
+                <span asp-validation-for="CategoryDescription" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="CategoryPicture" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="CategoryPicture" class="form-control" />
+                <span asp-validation-for="CategoryPicture" class="text-danger" />
+                <input type="file" name="_files" id="_files" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
